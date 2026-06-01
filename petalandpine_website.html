@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Petal & Pine — Seattle Bloom Bar Rentals</title>
+<meta name="description" content="Bloom bar cart rental for weddings, bridal showers, baby showers and corporate events in Seattle. Guests build their own bouquets to take home.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#FAF7F2;--blush:#F2E4DC;--rose:#C9967A;--deep:#8B5E52;
+  --pine:#3D4F3C;--pine-light:#5C7059;--dark:#2C2420;--mid:#6B5750;--light:#9E8880;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden}
+
+/* NAV */
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.4rem 3rem;background:var(--cream);border-bottom:1px solid rgba(139,94,82,0.12);position:sticky;top:0;z-index:100}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;letter-spacing:0.04em;color:var(--pine);text-decoration:none}
+.logo span{color:var(--rose);font-style:italic}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);text-decoration:none;font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:var(--pine)}
+.nav-cta{background:var(--pine);color:var(--cream);padding:0.6rem 1.4rem;font-size:0.73rem;letter-spacing:0.1em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-weight:500;transition:background 0.2s;text-decoration:none;display:inline-block}
+.nav-cta:hover{background:var(--pine-light)}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:90vh}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:5rem 4rem 5rem 5rem}
+.eyebrow{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--rose);margin-bottom:1.5rem;font-weight:500}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:4rem;line-height:1.05;font-weight:300;margin-bottom:1.5rem}
+.hero-title em{color:var(--pine);font-style:italic}
+.hero-sub{font-size:0.92rem;line-height:1.85;color:var(--mid);max-width:370px;margin-bottom:2.5rem;font-weight:300}
+.hero-btns{display:flex;gap:1rem;align-items:center}
+.btn-primary{background:var(--rose);color:white;padding:0.85rem 2rem;font-size:0.76rem;letter-spacing:0.1em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-weight:500;transition:background 0.2s;text-decoration:none;display:inline-block}
+.btn-primary:hover{background:var(--deep)}
+.btn-ghost{font-size:0.76rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--pine);font-weight:500;border:none;border-bottom:1px solid var(--pine);padding-bottom:2px;background:none;cursor:pointer;font-family:'Jost',sans-serif;text-decoration:none}
+.hero-right{background:var(--blush);display:flex;align-items:center;justify-content:center;padding:3rem}
+.hero-illustration{width:100%;max-width:320px}
+
+/* TRUST BAR */
+.trust{background:var(--pine);display:flex;justify-content:center;gap:3.5rem;padding:1.1rem 2rem;flex-wrap:wrap}
+.trust-item{font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(250,247,242,0.75);font-weight:500;display:flex;align-items:center;gap:0.45rem}
+.trust-dot{width:3px;height:3px;background:var(--rose);border-radius:50%;flex-shrink:0}
+
+/* SECTIONS */
+.section{padding:5rem}
+.section-alt{padding:5rem;background:var(--blush)}
+.sec-eyebrow{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--rose);margin-bottom:0.9rem;font-weight:500}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:2.7rem;font-weight:300;line-height:1.15;margin-bottom:1rem}
+.sec-title em{color:var(--pine);font-style:italic}
+
+/* HOW IT WORKS */
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;margin-top:3.5rem}
+.how-card{padding:2.2rem 1.8rem;border:1px solid rgba(139,94,82,0.14);background:white;position:relative}
+.how-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:rgba(201,150,122,0.18);position:absolute;top:1rem;right:1.2rem;line-height:1}
+.how-card h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;margin-bottom:0.7rem}
+.how-card p{font-size:0.86rem;line-height:1.78;color:var(--mid);font-weight:300}
+
+/* PACKAGES */
+.pkg-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:2.8rem}
+.pkg-card{background:white;padding:2.2rem;border:1px solid rgba(139,94,82,0.12);position:relative}
+.pkg-card.featured{border:1.5px solid var(--rose)}
+.pkg-badge{position:absolute;top:-1px;right:1.8rem;background:var(--rose);color:white;font-size:0.63rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.28rem 0.85rem;font-weight:500}
+.pkg-name{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:400;margin-bottom:0.35rem}
+.pkg-price{font-size:1.9rem;font-weight:300;color:var(--pine);line-height:1.1}
+.pkg-price span{font-size:0.82rem;color:var(--light);font-weight:300}
+.pkg-price-note{font-size:0.74rem;color:var(--light);margin-top:0.2rem}
+.pkg-divider{border:none;border-top:1px solid rgba(139,94,82,0.1);margin:0.9rem 0}
+.pkg-desc{font-size:0.82rem;line-height:1.72;color:var(--mid);margin-bottom:1.4rem;font-weight:300}
+.pkg-features{list-style:none;margin-bottom:1.8rem}
+.pkg-features li{font-size:0.82rem;color:var(--mid);padding:0.38rem 0;border-bottom:1px solid rgba(139,94,82,0.07);display:flex;align-items:center;gap:0.5rem;font-weight:300}
+.pkg-features li::before{content:"—";color:var(--rose);font-size:0.68rem;flex-shrink:0}
+
+/* CALCULATOR */
+.calc-box{background:var(--cream);border:1px solid rgba(139,94,82,0.12);padding:1rem 1.2rem;margin-bottom:1.5rem}
+.calc-lbl{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--light);margin-bottom:0.7rem;font-weight:500}
+.calc-row{display:flex;align-items:center;gap:0.7rem}
+.calc-row input[type=range]{flex:1;accent-color:var(--rose)}
+.calc-guest{font-size:0.8rem;color:var(--mid);min-width:68px}
+.calc-total{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:400;color:var(--pine);margin-top:0.45rem}
+.calc-total span{font-size:0.76rem;font-family:'Jost',sans-serif;color:var(--light);font-weight:300}
+
+.pkg-btn{width:100%;padding:0.82rem;font-size:0.73rem;letter-spacing:0.1em;text-transform:uppercase;font-family:'Jost',sans-serif;font-weight:500;cursor:pointer;transition:all 0.2s;border:none}
+.pkg-btn-fill{background:var(--rose);color:white}.pkg-btn-fill:hover{background:var(--deep)}
+.pkg-btn-outline{background:transparent;border:1px solid var(--pine);color:var(--pine)}.pkg-btn-outline:hover{background:var(--pine);color:white}
+.pkg-note{margin-top:1.2rem;font-size:0.75rem;color:var(--light);text-align:center;line-height:1.6}
+.pkg-note a{color:var(--rose);text-decoration:none}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.about-visual{background:var(--blush);height:400px;display:flex;align-items:center;justify-content:center}
+.about-body{font-size:0.88rem;line-height:1.88;color:var(--mid);font-weight:300;margin-top:1.1rem}
+.about-stats{display:flex;gap:2.2rem;margin-top:1.8rem}
+.stat strong{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--pine);display:block}
+.stat span{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--light)}
+
+/* INQUIRY */
+.inquiry{background:var(--pine);padding:5rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.inq-eyebrow{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(242,228,220,0.65);margin-bottom:0.9rem;font-weight:500}
+.inq-title{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;line-height:1.15;color:var(--cream)}
+.inq-title em{color:var(--rose);font-style:italic}
+.inq-sub{font-size:0.86rem;line-height:1.82;color:rgba(250,247,242,0.6);margin-top:1rem;font-weight:300}
+.form-group{margin-bottom:1.1rem}
+.form-group label{display:block;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,247,242,0.5);margin-bottom:0.45rem;font-weight:500}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:rgba(250,247,242,0.07);border:1px solid rgba(250,247,242,0.14);color:var(--cream);padding:0.72rem 0.95rem;font-family:'Jost',sans-serif;font-size:0.86rem;font-weight:300;outline:none;transition:border 0.2s}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(250,247,242,0.28)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(201,150,122,0.55)}
+.form-group select option{background:var(--pine);color:var(--cream)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-submit{width:100%;background:var(--rose);border:none;color:white;padding:0.95rem;font-size:0.76rem;letter-spacing:0.12em;text-transform:uppercase;font-family:'Jost',sans-serif;font-weight:500;cursor:pointer;margin-top:0.4rem;transition:background 0.2s}
+.form-submit:hover{background:var(--deep)}
+.form-success{display:none;background:rgba(250,247,242,0.08);border:1px solid rgba(201,150,122,0.4);padding:1.2rem;text-align:center;color:var(--cream);font-size:0.88rem;line-height:1.7}
+
+/* FOOTER */
+footer{background:var(--cream);border-top:1px solid rgba(139,94,82,0.12);padding:1.8rem 5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--pine)}
+.footer-logo span{color:var(--rose);font-style:italic}
+.footer-note{font-size:0.73rem;color:var(--light);letter-spacing:0.04em}
+.footer-links{display:flex;gap:1.4rem}
+.footer-links a{font-size:0.73rem;color:var(--light);text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:var(--rose)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero-left > *{animation:fadeUp 0.65s ease both}
+.eyebrow{animation-delay:0.1s}.hero-title{animation-delay:0.2s}.hero-sub{animation-delay:0.3s}.hero-btns{animation-delay:0.4s}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-left{padding:3rem 1.5rem}
+  .hero-title{font-size:2.8rem}
+  .hero-right{height:280px}
+  .trust{gap:1.5rem;padding:1rem 1.5rem}
+  .section,.section-alt{padding:3rem 1.5rem}
+  .how-grid{grid-template-columns:1fr}
+  .pkg-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr;gap:2rem}
+  .about-visual{height:260px}
+  .inquiry{grid-template-columns:1fr;padding:3rem 1.5rem;gap:2.5rem}
+  footer{padding:1.5rem;flex-direction:column;text-align:center}
+  .footer-links{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">Petal <span>&</span> Pine</a>
+  <ul class="nav-links">
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <a href="#inquiry" class="nav-cta">Book your date</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <p class="eyebrow">Seattle bloom bar rentals</p>
+    <h1 class="hero-title">A floral moment<br>your guests will<br><em>never forget</em></h1>
+    <p class="hero-sub">We bring a beautifully styled flower cart to your event. Your guests build their own bouquets and take home something they made themselves. Weekend bookings across the Seattle area.</p>
+    <div class="hero-btns">
+      <a href="#inquiry" class="btn-primary">Check availability</a>
+      <a href="#packages" class="btn-ghost">See packages</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <svg class="hero-illustration" viewBox="0 0 300 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Cart body -->
+      <rect x="40" y="70" width="220" height="220" rx="6" fill="white" stroke="#C9967A" stroke-width="1.5"/>
+      <!-- Flower display shelf -->
+      <rect x="58" y="88" width="184" height="95" rx="3" fill="#F2E4DC"/>
+      <!-- Flowers -->
+      <circle cx="95" cy="132" r="20" fill="#C9967A" opacity="0.65"/>
+      <circle cx="95" cy="132" r="11" fill="#8B5E52" opacity="0.45"/>
+      <circle cx="143" cy="126" r="16" fill="#E8B4A0" opacity="0.85"/>
+      <circle cx="143" cy="126" r="8" fill="#C9967A" opacity="0.6"/>
+      <circle cx="188" cy="134" r="18" fill="#3D4F3C" opacity="0.35"/>
+      <circle cx="188" cy="134" r="9" fill="#5C7059" opacity="0.5"/>
+      <circle cx="230" cy="127" r="13" fill="#F2E4DC"/>
+      <circle cx="230" cy="127" r="7" fill="#C9967A" opacity="0.65"/>
+      <!-- Shelf divider -->
+      <line x1="40" y1="192" x2="260" y2="192" stroke="#C9967A" stroke-width="0.8" stroke-opacity="0.3"/>
+      <!-- Lower shelf rows -->
+      <rect x="58" y="204" width="184" height="22" rx="2" fill="#FAF7F2"/>
+      <rect x="70" y="210" width="55" height="10" rx="2" fill="#F2E4DC"/>
+      <rect x="135" y="210" width="80" height="10" rx="2" fill="#F2E4DC"/>
+      <rect x="58" y="234" width="184" height="22" rx="2" fill="#FAF7F2"/>
+      <rect x="70" y="240" width="75" height="10" rx="2" fill="#F2E4DC"/>
+      <rect x="155" y="240" width="60" height="10" rx="2" fill="#F2E4DC"/>
+      <rect x="58" y="262" width="184" height="22" rx="2" fill="#FAF7F2"/>
+      <rect x="70" y="268" width="40" height="10" rx="2" fill="#F2E4DC"/>
+      <rect x="120" y="268" width="95" height="10" rx="2" fill="#F2E4DC"/>
+      <!-- Sign -->
+      <rect x="112" y="292" width="76" height="52" rx="3" fill="white" stroke="#C9967A" stroke-width="0.8"/>
+      <text x="150" y="314" font-family="Georgia,serif" font-size="7.5" fill="#8B5E52" text-anchor="middle">Petal</text>
+      <text x="150" y="326" font-family="Georgia,serif" font-size="7" fill="#C9967A" text-anchor="middle">&amp;</text>
+      <text x="150" y="337" font-family="Georgia,serif" font-size="7.5" fill="#3D4F3C" text-anchor="middle">Pine</text>
+      <!-- Wheel base -->
+      <line x1="65" y1="344" x2="235" y2="344" stroke="#C9967A" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="88" cy="358" r="11" fill="none" stroke="#3D4F3C" stroke-width="1.5"/>
+      <circle cx="88" cy="358" r="4" fill="#3D4F3C"/>
+      <circle cx="212" cy="358" r="11" fill="none" stroke="#3D4F3C" stroke-width="1.5"/>
+      <circle cx="212" cy="358" r="4" fill="#3D4F3C"/>
+      <!-- Stem flowers above cart -->
+      <line x1="135" y1="52" x2="145" y2="72" stroke="#5C7059" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="130" cy="40" r="11" fill="#5C7059" opacity="0.55"/>
+      <circle cx="148" cy="30" r="8" fill="#C9967A" opacity="0.7"/>
+      <circle cx="162" cy="42" r="7" fill="#E8B4A0" opacity="0.8"/>
+      <line x1="170" y1="55" x2="162" y2="72" stroke="#5C7059" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="174" cy="44" r="9" fill="#8B5E52" opacity="0.45"/>
+    </svg>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="trust-item"><div class="trust-dot"></div>Weekend bookings only</div>
+  <div class="trust-item"><div class="trust-dot"></div>Seattle &amp; surrounding areas</div>
+  <div class="trust-item"><div class="trust-dot"></div>Cart-only or full floral experience</div>
+  <div class="trust-item"><div class="trust-dot"></div>Showers · weddings · corporate</div>
+</div>
+
+<section class="section" id="how">
+  <p class="sec-eyebrow">The experience</p>
+  <h2 class="sec-title">Simple, beautiful,<br><em>effortless for you</em></h2>
+  <div class="how-grid">
+    <div class="how-card">
+      <div class="how-num">01</div>
+      <h3>Book your date</h3>
+      <p>Fill out a quick inquiry form with your event date, location, and guest count. We'll confirm availability and send over a simple agreement within 24 hours.</p>
+    </div>
+    <div class="how-card">
+      <div class="how-num">02</div>
+      <h3>We deliver &amp; style</h3>
+      <p>We arrive before your event starts, set up the cart beautifully, and make sure everything is ready to wow your guests the moment they walk in.</p>
+    </div>
+    <div class="how-card">
+      <div class="how-num">03</div>
+      <h3>Guests build &amp; take home</h3>
+      <p>Your guests choose their stems, wrap their bouquets, and leave with something they made themselves — a favor they'll actually remember.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-alt" id="packages">
+  <p class="sec-eyebrow">Packages</p>
+  <h2 class="sec-title">Choose your<br><em>bloom experience</em></h2>
+  <div class="pkg-grid">
+    <!-- FEATURED: Cart + Blooms -->
+    <div class="pkg-card featured">
+      <div class="pkg-badge">Most popular</div>
+      <div class="pkg-name">Cart + Blooms</div>
+      <div class="pkg-price">$25 <span>per guest</span></div>
+      <div class="pkg-price-note">15 guest minimum &nbsp;·&nbsp; cart fee included</div>
+      <hr class="pkg-divider">
+      <p class="pkg-desc">The full Petal &amp; Pine experience. We source fresh seasonal flowers, style the cart beautifully, and your guests build their own bouquets to take home.</p>
+      <ul class="pkg-features">
+        <li>Fresh seasonal flowers, curated by us</li>
+        <li>Styled flower cart delivery &amp; setup</li>
+        <li>Wrapping paper, ribbon &amp; floral snips</li>
+        <li>Color palette customization</li>
+        <li>Flower food packets for each bouquet</li>
+        <li>Up to 4 hours &nbsp;·&nbsp; pickup included</li>
+      </ul>
+      <div class="calc-box">
+        <div class="calc-lbl">Estimate your total</div>
+        <div class="calc-row">
+          <input type="range" min="15" max="75" value="25" step="1" id="guestSlider" oninput="updateCalc()">
+          <span class="calc-guest" id="guestCount">25 guests</span>
+        </div>
+        <div class="calc-total" id="calcTotal">$625 <span>estimated total</span></div>
+      </div>
+      <button class="pkg-btn pkg-btn-fill" onclick="document.getElementById('inquiry').scrollIntoView({behavior:'smooth'})">Book cart + blooms</button>
+    </div>
+    <!-- Cart Only -->
+    <div class="pkg-card">
+      <div class="pkg-name">Cart Only</div>
+      <div class="pkg-price">$175 <span>flat rate</span></div>
+      <div class="pkg-price-note">You source the flowers &nbsp;·&nbsp; up to 4 hours</div>
+      <hr class="pkg-divider">
+      <p class="pkg-desc">You bring the blooms, we bring the beautiful cart and all the styling. Perfect if you already have a florist or want to pick up flowers yourself.</p>
+      <ul class="pkg-features">
+        <li>Styled flower cart delivery &amp; setup</li>
+        <li>Wrapping paper, ribbon &amp; floral snips</li>
+        <li>Bloom Bar signage included</li>
+        <li>Up to 4 hours</li>
+        <li>Pickup &amp; breakdown included</li>
+      </ul>
+      <button class="pkg-btn pkg-btn-outline" onclick="document.getElementById('inquiry').scrollIntoView({behavior:'smooth'})">Book cart only</button>
+    </div>
+  </div>
+  <p class="pkg-note">All bookings require a 50% non-refundable deposit to hold your date. Travel fee may apply beyond 20 miles from Seattle. <a href="#inquiry">Questions? Get in touch.</a></p>
+</div>
+
+<section class="section" id="about">
+  <div class="about-grid">
+    <div class="about-visual">
+      <svg viewBox="0 0 260 260" width="180" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="130" cy="130" r="75" fill="white" opacity="0.55"/>
+        <circle cx="130" cy="130" r="46" fill="#C9967A" opacity="0.14"/>
+        <circle cx="130" cy="130" r="18" fill="#C9967A" opacity="0.28"/>
+        <line x1="130" y1="55" x2="130" y2="112" stroke="#5C7059" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="130" cy="46" r="13" fill="#5C7059" opacity="0.48"/>
+        <line x1="72" y1="92" x2="112" y2="118" stroke="#5C7059" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="63" cy="86" r="10" fill="#C9967A" opacity="0.58"/>
+        <line x1="188" y1="92" x2="150" y2="118" stroke="#5C7059" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="196" cy="85" r="12" fill="#8B5E52" opacity="0.4"/>
+        <line x1="90" y1="195" x2="118" y2="155" stroke="#5C7059" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="83" cy="203" r="9" fill="#E8B4A0" opacity="0.75"/>
+        <line x1="170" y1="195" x2="143" y2="155" stroke="#5C7059" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="177" cy="203" r="11" fill="#3D4F3C" opacity="0.38"/>
+        <text x="130" y="135" font-family="Georgia,serif" font-size="10" fill="#8B5E52" text-anchor="middle">Petal</text>
+        <text x="130" y="148" font-family="Georgia,serif" font-size="10" fill="#3D4F3C" text-anchor="middle">&amp; Pine</text>
+      </svg>
+    </div>
+    <div>
+      <p class="sec-eyebrow">Our story</p>
+      <h2 class="sec-title" style="font-size:2.3rem">A Seattle side<br><em>made with love</em></h2>
+      <p class="about-body">Petal &amp; Pine started with a simple idea: flowers make moments memorable. We bring a beautifully styled bloom bar cart to your Seattle-area event on weekends, so your guests can take home something they made with their own hands.<br><br>We keep it simple — cart delivery, setup, and pickup all handled by us. You focus on your guests, we handle the floral experience.</p>
+      <div class="about-stats">
+        <div class="stat"><strong>Weekend</strong><span>Bookings only</span></div>
+        <div class="stat"><strong>Seattle</strong><span>&amp; surrounds</span></div>
+        <div class="stat"><strong>4 hrs</strong><span>Typical rental</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="inquiry" id="inquiry">
+  <div>
+    <p class="inq-eyebrow">Get in touch</p>
+    <h2 class="inq-title">Let's make your<br><em>event bloom</em></h2>
+    <p class="inq-sub">Weekend dates fill up quickly, especially May through October. Fill out the form and we'll get back to you within 24 hours to confirm availability and answer any questions.</p>
+  </div>
+  <div>
+    <div class="form-row">
+      <div class="form-group"><label>First name</label><input type="text" id="f_first" placeholder="Sarah"></div>
+      <div class="form-group"><label>Last name</label><input type="text" id="f_last" placeholder="Johnson"></div>
+    </div>
+    <div class="form-group"><label>Email</label><input type="email" id="f_email" placeholder="hello@email.com"></div>
+    <div class="form-row">
+      <div class="form-group"><label>Event date</label><input type="date" id="f_date"></div>
+      <div class="form-group"><label>Guest count</label><input type="number" id="f_guests" placeholder="25"></div>
+    </div>
+    <div class="form-group">
+      <label>Package interest</label>
+      <select id="f_package">
+        <option>Cart + Blooms (from $25/guest)</option>
+        <option>Cart Only ($175 flat)</option>
+        <option>Not sure yet</option>
+      </select>
+    </div>
+    <div class="form-group"><label>Tell us about your event</label><textarea id="f_notes" rows="3" placeholder="Bridal shower, baby shower, birthday, corporate event..."></textarea></div>
+    <button class="form-submit" onclick="submitForm()">Send inquiry</button>
+    <div class="form-success" id="formSuccess">
+      Thank you! We'll be in touch within 24 hours to confirm availability.<br>
+      <span style="font-size:0.8rem;opacity:0.7">— The Petal &amp; Pine team</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Petal <span>&</span> Pine</div>
+  <div class="footer-note">Seattle bloom bar rentals &nbsp;·&nbsp; Weekends only</div>
+  <div class="footer-links">
+    <a href="https://instagram.com/petalandpineseattle" target="_blank">Instagram</a>
+    <a href="#inquiry">Email us</a>
+    <a href="#how">FAQ</a>
+  </div>
+</footer>
+
+<script>
+function updateCalc(){
+  var g = parseInt(document.getElementById('guestSlider').value);
+  document.getElementById('guestCount').textContent = g + ' guests';
+  document.getElementById('calcTotal').innerHTML = '$' + (g * 25).toLocaleString() + ' <span>estimated total</span>';
+}
+
+function submitForm(){
+  var first = document.getElementById('f_first').value.trim();
+  var email = document.getElementById('f_email').value.trim();
+  if(!first || !email){ alert('Please enter your name and email.'); return; }
+  // In production: replace this with a Formspree or Netlify Forms endpoint
+  document.getElementById('formSuccess').style.display = 'block';
+  document.querySelector('.form-submit').style.display = 'none';
+}
+</script>
+</body>
+</html>
